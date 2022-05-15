@@ -44,9 +44,6 @@ class User:
         self.name = name
         self.email = email
         self.account = BankAccount(int_rate=0.02, balance=0)
-    
-    def display_user_balance(self, balance):
-        print(f'Your account balance is {BankAccount.balance')
-
+        
 
 
