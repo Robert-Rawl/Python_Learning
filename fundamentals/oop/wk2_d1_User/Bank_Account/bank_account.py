@@ -43,7 +43,7 @@ class BankAccount:
     #@classmethod
     #def print_all_accounts(cls):
         for account in cls.accounts:
-            account.display_account_info()
+            account.display_account_info(self)
 
 
 
@@ -54,7 +54,7 @@ account_2 = BankAccount(.02, 5000)
 
 
 account_1.deposit(20).deposit(50).deposit(500).withdraw(130).yield_interest().display_account_info()
-#trying a way of displaying i found online with \ not sure which one il like better
+#trying a way of displaying i found online with \ not sure which one i like better
 account_2.deposit(100)\
         .deposit(300)\
             .withdraw(50)\
