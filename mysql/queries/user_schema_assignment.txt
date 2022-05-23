@@ -1,0 +1,27 @@
+SELECT * FROM users;
+INSERT INTO users
+(first_name, last_name, email, created_at, updated_at)
+VALUES
+("Rob", "Rawl", 'rawl.rob@email.com', NOW(), NOW());
+INSERT INTO users
+(first_name, last_name, email, created_at, updated_at)
+VALUES
+("Brandon", "Rawl", 'brandon @email.com', NOW(), NOW());
+INSERT INTO users
+(first_name, last_name, email, created_at, updated_at)
+VALUES
+('Chloe', 'Yang', 'yang@email.com', NOW(), NOW());
+SELECT users.email AS "Users Email"
+FROM users
+WHERE id = 1;
+UPDATE users_schema.users SET
+last_name = "Pancakes"
+WHERE id = 3;
+DELETE FROM users 
+WHERE id = 2;
+SELECT *
+FROM users
+ORDER BY first_name ASC;
+SELECT *
+FROM users
+ORDER BY first_name DESC;
