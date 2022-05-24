@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+}
+/* thought about linking a static sheet so i could do it both ways
+ */
+/* .wrapper {  
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 10px;
+} 
+.boxes{
+    height: 200px;
+    width: 200px;
+    border: 2pt solid black;
+    background-color: blue;
+
+}
