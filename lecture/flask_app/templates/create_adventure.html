@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Create Adventures</title>
+</head>
+<body>
+    <h1>Tell us About Your Adventure</h1>
+    {%  with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div id="popup">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            <button onclick="popup.remove()">OK</button>
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <form action="/adventures/create" method="post">
+        <input type="hidden" name="user_id" value={{session.user_id}}>
+        <label>
+            Title:
+            <input type="text" name="title">
+        </label>
+        <label>
+            Place:
+            <input type="text" name="place">
+        </label>
+        <label>
+            Date:
+            <input type="date" name="date">
+        </label>
+        <label>
+            Description:
+            <input type="text area" name="description">
+        </label>
+        <input type="submit" value="Create Adventure">
+    </form>
+
+
+</body>
+</html>

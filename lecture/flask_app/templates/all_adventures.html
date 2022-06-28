@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>All Adventures</title>
+</head>
+<body>
+    <h1>Everyone's Adventures</h1>
+
+    <a href="/users/profile">
+        <button>Home</button>
+    </a>
+
+    <table>
+        <tr>
+            <th>adventurer</th>
+            <th>Title</th>
+            <th>Place</th>
+            <th>Date</th>
+            <th>Options</th>
+        </tr>
+        {% for adventure in all_adventures %}
+            <tr>
+                <td>{{ adventure.adventurer.first_name }} {{ adventure.adventurer.last_name }}</td>
+                <td>{{ adventure.title }}</td>
+                <td>{{ adventure.place }}</td>
+                <td>{{ adventure.date }}</td>
+                <td>
+                    <a href="/adventures/info/{{adventure.id}}">View</a>
+                    <!-- The below only works on this page because an adventure was created, USE THIS METHOD FOR EXAM -->
+                    {% if adventure.adventurer.id == session.user_id%}
+                    <a href="/adventures/delete/{{adventure.id}}">Delete</a>
+                    {% endif %}
+                    <!-- this one will work anywhere there is an adventure, USE THIS WITH REAL WORLD INSTANCES -->
+                    {% if adventure.user_id == session.user_id %} 
+                        <a href="/adventures/edit/{{adventure.id}}">Update</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

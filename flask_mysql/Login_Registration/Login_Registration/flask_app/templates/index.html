@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Responsive Registration Form
+    </title>
+</head>
+<body>
+    <div>
+        <div class="container">
+            <div class="title">Resgistration</div>
+            <form action="/register" method="post">
+                {% with messages = get_flashed_messages(category_filter=['register']) %}
+                    {% if messages %}
+                        <div class="alert alert-danger" role="alert">
+                            <strong>ERROR!!!!</strong>
+                                {% for message in messages %}
+                                <p>{{message}}</p>
+                                {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">First Name:</span>
+                        <input type="text" name="first_name" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Last Name:</span>
+                        <input type="text" name="last_name" placeholder="Enter your last name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email:</span>
+                        <input type="text" name="email" placeholder="Enter your Email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Password:</span>
+                        <input type="password" name="password" placeholder="Create a Password" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Confirm Password:</span>
+                        <input type="password" name="confirm" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Register">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            {% with messages = get_flashed_messages(category_filter=['login']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong> ERROR!!!!</strong>
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <div class="title">Login</div>
+            <form action="/login" method="post">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Email:</span>
+                        <input type="text" name="email" placeholder="Enter your Email">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Password:</span>
+                        <input type="password" name="password" placeholder="Enter your password">
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Login">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

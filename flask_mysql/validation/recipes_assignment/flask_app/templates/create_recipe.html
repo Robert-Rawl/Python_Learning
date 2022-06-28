@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Create Recipe</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <div class="navigation-buttons">
+        <a href="/users/profile">
+            <button>Profile</button>
+        </a>
+        <a href="/users/logout">
+            <button>Logout</button>
+        </a>
+    </div>
+    <div>
+        {%  with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div id="popup">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                    <button onclick="popup.remove()">OK</button>
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form action="/recipes/create" method="post">
+            <div class="create-name">
+                <label>
+                    Name:
+                    <input type="text" name="name">
+                </label>
+            </div>
+            <div class="description">
+                <label>
+                    Description:
+                    <input type="text" name="description">
+                </label>
+            </div>
+            <div class="instructions">
+                <label>
+                    Instructions:
+                </label>
+                <textarea name="instructions" i cols="20" rows="10"></textarea>
+            </div>
+            <div class="date-made">
+                <label>
+                    Date Made:
+                    <input type="date" name="date_made">
+                </label>
+            </div>
+            <div class="under30">
+                <label>
+                    Under 30 minutes?:
+                </label>
+                <div class="no">
+                    <input type="radio" name="under30" value="0">
+                    <label for="0">No</label>
+                </div>
+                <div class="yes">
+                    <input type="radio" name="under30" value="1">
+                    <label for="1">Yes</label>
+                </div>
+                <div>
+                    <input type="submit" value="add recipe">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

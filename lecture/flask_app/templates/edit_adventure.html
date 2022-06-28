@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Adventure</title>
+</head>
+<body>
+    <h1>Edit Adventure {{ this_adventure.title }}</h1>
+    <form action="/adventures/edit/{{ this_adventure.id }}" method="post">
+        <label>
+            Title:
+            <input type="text" name="title" value={{this_adventure.title}}>
+        </label>
+        <label>
+            Place:
+            <input type="text" name="place" value={{this_adventure.place}}>
+        </label>
+        <label>
+            Date:
+            <input type="date" name="date" value={{this_adventure.date}}>
+        </label>
+        <label>
+            Description:
+            <input type="text area" name="description" value={{this_adventure.description}}>
+        </label>
+        <input type="submit" value="Update Adventure">
+    </form>
+    
+</body>
+</html>

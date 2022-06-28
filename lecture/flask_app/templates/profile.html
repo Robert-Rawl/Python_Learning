@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Welcome {{ this_user.first_name }} {{this_user.last_name }}</h1>
+
+    <a href="/users/logout">
+        <button>Logout</button>
+    </a>
+
+    <h2>My Past Adventures</h2>
+    <div>
+
+        {% for adventure in this_user.adventures %}
+            <h3>{{ adventure.title }}</h3>
+            <p>Place: {{ adventure.place }} : {{ adventure.date }}</p>
+            <p>{{ adventure.description }}
+                <a href="/adventures/edit/{{ adventure.id }}">
+                    <button>Edit Adventure</button>
+                </a>
+                <a href="/adventures/delete/{{adventure.id }}">
+                    <button>Delete Adventure</button>
+                </a>                
+        {% endfor %}       
+    </div>
+        <a href="/adventures/create">
+            <button>Create New Adventure</button>
+    </a>
+    <a href="/adventures/all">
+        <button>View Everyone's Adventures</button>
+    </a>
+    
+</body>
+</html>

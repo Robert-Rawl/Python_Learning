@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Register and Login </h1>
+        <div class="showcase">
+            {%  with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div id="popup">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                    <button onclick="popup.remove()">OK</button>
+                </div>
+            {% endif %}
+            {% endwith %}
+            <div class="register-box">
+                <div>
+                <h2>Registration</h2>
+                </div>
+                
+                <form action="/users/create" method="post">
+                    <label>
+                        First Name:
+                        <input type="text" name="first_name">
+                    </label>
+                    <label>
+                        Last Name:
+                        <input type="text" name="last_name">
+                    </label>
+                    <label>
+                        Email:
+                        <input type="email" name="email">
+                    </label>
+                    <label>
+                        Password:
+                        <input type="password" name="password">
+                    </label>
+                    <label>
+                        Confirm Password:
+                        <input type="password" name="confirm_password">
+                    </label>
+                    <input type="submit" value="Register">
+                </form>
+            </div>
+            <div class="login-box">
+                <h2>Login</h2>
+                    <form action="/users/login" method="post">
+                        <label>
+                            Email:
+                            <input type="email" name="email">
+                        </label>
+                        <label>
+                            Password:
+                            <input type="password" name="password">
+                        </label>
+                        <input type="submit" value="Login">
+                    </form>
+            </div>        
+        </div>
+    </div>    
+        
+</body>
+</html>

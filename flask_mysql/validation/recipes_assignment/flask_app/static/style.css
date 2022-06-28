@@ -1,0 +1,59 @@
+body {
+    background: linear-gradient(135deg, #71b7e6,#9b59b6);
+}
+
+p{
+    text-align: center;
+    font-weight: 900;
+}
+
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.container h1 {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 50px
+}
+
+.showcase {
+    display: flex;
+    justify-content: space-around;
+    align-items: bottom;
+    
+}
+
+.register-box {
+    max-width: 400px;
+    height: 250px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 25px;
+    border-radius: 5px;
+    border: 2pt solid black;
+    background-color: azure;
+    ;
+}
+
+.login-box {
+    max-width: 400px;
+    height: 250px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 25px;
+    border-radius: 5px;
+    border: 2pt solid black;
+}
+
+label {
+    display: block;
+    margin: 5px;
+}
+
+.navigation-buttons{
+    text-align: center;
+}
+
+
